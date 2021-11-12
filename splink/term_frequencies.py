@@ -16,8 +16,8 @@ def sql_gen_term_frequencies(column_name, table_name="df"):
 
     sql = f"""
     select
-    {column_name}, count(*) / (select
-        count({column_name}) as total from {table_name}) as tf_{column_name}
+    {column_name}, cast(count(*) / (select
+        count({column_name}) as total from {table_name}) as float) as tf_{column_name}
     from {table_name}
     where {column_name} is not null
     group by {column_name}

@@ -123,9 +123,9 @@ def _check_no_obvious_problem_with_case_statement(case_statement):
 
 def sql_gen_case_smnt_strict_equality_2(col_name, gamma_col_name=None):
     c = f"""case
-    when {col_name}_l is null or {col_name}_r is null then -1
-    when {col_name}_l = {col_name}_r then 1
-    else 0 end"""
+    when {col_name}_l is null or {col_name}_r is null then -1Y
+    when {col_name}_l = {col_name}_r then 1Y
+    else 0Y end"""
 
     return _add_as_gamma_to_case_statement(c, gamma_col_name)
 
@@ -140,9 +140,9 @@ def sql_gen_case_smnt_strict_equality_2(col_name, gamma_col_name=None):
 
 def sql_gen_case_stmt_jaro_2(col_name, threshold, gamma_col_name=None):
     c = f"""case
-    when {col_name}_l is null or {col_name}_r is null then -1
-    when jaro_winkler_sim({col_name}_l, {col_name}_r) >= {threshold} then 1
-    else 0 end"""
+    when {col_name}_l is null or {col_name}_r is null then -1Y
+    when jaro_winkler_sim({col_name}_l, {col_name}_r) >= {threshold} then 1Y
+    else 0Y end"""
 
     return _add_as_gamma_to_case_statement(c, gamma_col_name)
 
@@ -151,10 +151,10 @@ def sql_gen_case_stmt_jaro_3(
     col_name, gamma_col_name=None, threshold1=1.0, threshold2=0.88
 ):
     c = f"""case
-    when {col_name}_l is null or {col_name}_r is null then -1
-    when jaro_winkler_sim({col_name}_l, {col_name}_r) >= {threshold1} then 2
-    when jaro_winkler_sim({col_name}_l, {col_name}_r) >= {threshold2} then 1
-    else 0 end"""
+    when {col_name}_l is null or {col_name}_r is null then -1Y
+    when jaro_winkler_sim({col_name}_l, {col_name}_r) >= {threshold1} then 2Y
+    when jaro_winkler_sim({col_name}_l, {col_name}_r) >= {threshold2} then 1Y
+    else 0Y end"""
 
     return _add_as_gamma_to_case_statement(c, gamma_col_name)
 
