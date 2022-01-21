@@ -28,7 +28,7 @@ def _get_new_lambda(df_intermediate, spark):
     df_intermediate.createOrReplaceTempView("df_intermediate")
     sql = _sql_gen_new_lambda(table_name="df_intermediate")
 
-    new_lambda = spark.sql(sql).collect()[0][0]
+    new_lambda = next(iterrows(spark.sql(sql).collect()))[0]
     logger.debug(_format_sql(sql))
     return new_lambda
 
