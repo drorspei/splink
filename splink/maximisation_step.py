@@ -1,11 +1,9 @@
 import logging
 from xml.dom.minidom import Attr
 
-
-
-
 from .logging_utils import _format_sql
 from .model import Model
+from .agnostics import iterrows, row_to_dict
 
 logger = logging.getLogger(__name__)
 
@@ -78,20 +76,6 @@ def _sql_gen_pi_df(model, table_name="df_intermediate"):
     sql = "\nunion all\n".join(sqls)
 
     return sql
-
-
-def iterrows(df):
-    if str(type(df)) == "<class 'pyarrow.lib.Table'>":
-        return (row for _, row in df.to_pandas().iterrows())
-    else:
-        return df
-
-
-def row_to_dict(row):
-    try:
-        return row.asDict()
-    except AttributeError:
-        return row.to_dict()
 
 
 def _get_new_pi_df(df_intermediate, spark, params):

@@ -1,8 +1,7 @@
 import re
 from copy import deepcopy
 
-
-
+from .agnostics import iterrows, row_to_dict
 from functools import reduce
 
 
@@ -353,20 +352,6 @@ def _get_df_top_bottom_n(
     df = spark.sql(sql)
 
     return df
-
-
-def iterrows(df):
-    if str(type(df)) == "<class 'pyarrow.lib.Table'>":
-        return (row for _, row in df.to_pandas().iterrows())
-    else:
-        return df
-
-
-def row_to_dict(row):
-    try:
-        return row.asDict()
-    except AttributeError:
-        return row.to_dict()
 
 
 def _collect_and_group_percentiles_df(df_percentiles):
