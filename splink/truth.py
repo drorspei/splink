@@ -568,7 +568,7 @@ def truth_space_table(
 
 
 def roc_chart(
-    df_labels_with_splink_scores: Union[DataFrame, dict],
+    df_labels_with_splink_scores: Union["DataFrame", dict],
     spark,
     threshold_actual: float = 0.5,
     x_domain: list = None,
@@ -578,7 +578,7 @@ def roc_chart(
     """Create a ROC chart from labelled data
 
     Args:
-        df_labels_with_splink_scores (Union[DataFrame, dict]): A dataframe of labels and associated splink scores
+        df_labels_with_splink_scores (Union["DataFrame", dict]): A dataframe of labels and associated splink scores
             usually the output of the truth.labels_with_splink_scores function.  Or, a dict containing
             one such dataframe per key.  {'model 1': df1, 'model 2': df2}.  If a dict is provided, the
             ROC charts for each model will be plotted on the same figure.

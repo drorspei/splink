@@ -130,7 +130,7 @@ def _threshold_values_to_dict(threshold_values):
 
 
 def clusters_at_thresholds(
-    df_of_dfs_nodes: Union[DataFrame, List[DataFrame]],
+    df_of_dfs_nodes: Union["DataFrame", List["DataFrame"]],
     df_edges: "DataFrame",
     threshold_values: Union[float, list, dict],
     model: Model,
@@ -142,7 +142,7 @@ def clusters_at_thresholds(
     from a table of scored edges (scored pairwise comparisons)
 
     Args:
-        df_of_dfs_nodes (Union[DataFrame, List[DataFrame]]): "DataFrame" or Dataframes of nodes (original records
+        df_of_dfs_nodes (Union["DataFrame", List["DataFrame"]]): "DataFrame" or Dataframes of nodes (original records
             from which pairwise comparisons  are derived).  If the link_type is `dedupe_only`, this will be a
             single dataframe.  If the link_type is `link_and_dedupe` or `link_only`, this will be a list of dataframes.
             The provided dataframes should be the same as provided to Splink().

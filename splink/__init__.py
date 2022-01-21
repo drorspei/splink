@@ -29,7 +29,7 @@ class Splink:
     def __init__(
         self,
         settings: dict,
-        df_or_dfs: Union[DataFrame, List[DataFrame]],
+        df_or_dfs: Union["DataFrame", List["DataFrame"]],
         spark,
         save_state_fn: Callable = None,
         break_lineage_blocked_comparisons: Callable = default_break_lineage_blocked_comparisons,
@@ -40,7 +40,7 @@ class Splink:
 
         Args:
             settings (dict): splink settings dictionary
-            df_or_dfs (Union[DataFrame, List[DataFrame]]): Either a single Spark dataframe to dedupe, or a list of
+            df_or_dfs (Union["DataFrame", List["DataFrame"]]): Either a single Spark dataframe to dedupe, or a list of
                 Spark dataframes to link and or dedupe. Where `link_type` is `dedupe_only`, should be a single dataframe
                 to dedupe. Where `link_type` is `link_only` or `link_and_dedupe`, show be a list of dfs.  Requires
                 conformant dataframes (i.e. they must have same columns)
@@ -130,7 +130,7 @@ class Splink:
 
 def load_from_json(
     path: str,
-    df_or_dfs: Union[DataFrame, List[DataFrame]],
+    df_or_dfs: Union["DataFrame", List["DataFrame"]],
     spark,
     save_state_fn: Callable = None,
 ):
