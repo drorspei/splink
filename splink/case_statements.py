@@ -38,9 +38,6 @@ def _get_spark_jars_string():
     message = (
         "You will need to add it by correctly configuring your spark config\n"
         "For example in Spark 2.4.5\n"
-        "\n"
-        "
-        "
         f"conf.set('spark.driver.extraClassPath', '{path}') # Not needed in spark 3\n"
         f"conf.set('spark.jars', '{path}')\n"
         "spark.udf.registerJavaFunction('jaro_winkler_sim','uk.gov.moj.dash.linkage.JaroWinklerSimilarity',types.DoubleType())\n"
