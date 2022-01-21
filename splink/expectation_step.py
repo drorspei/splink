@@ -166,7 +166,7 @@ def _sql_gen_expected_match_prob(
     bf_cols.extend(bf_tf_adj_cols)
 
     bayes_factor = " * ".join(bf_cols)
-    bayes_factor = f"{λ}D/ (1-{λ}D) * {bayes_factor}"
+    bayes_factor = f"cast({λ} as double)/ (1-cast({λ} as double)) * {bayes_factor}"
 
     select_expr = _column_order_df_e_select_expr(
         settings, retain_source_dataset, tf_adj_cols=True
@@ -231,7 +231,7 @@ def _sql_gen_bayes_factors(comparison_column, tf_adj=False):
 
         for gamma_index, weight in enumerate(tf_weights):
             if u_prob_exact is not None:
-                bf_tf = f"{u_prob_exact}D / greatest(tf_{cc.name}_l, tf_{cc.name}_r)"
+                bf_tf = f"cast({u_prob_exact} as double) / greatest(tf_{cc.name}_l, tf_{cc.name}_r)"
                 case_stmt = f"when {cc.gamma_name} = {gamma_index} then power({bf_tf}, cast({weight} as double))"
             else:
                 case_stmt = f"when {cc.gamma_name} = {gamma_index} then 1"
