@@ -1,4 +1,5 @@
 import logging
+from xml.dom.minidom import Attr
 
 
 
@@ -79,6 +80,20 @@ def _sql_gen_pi_df(model, table_name="df_intermediate"):
     return sql
 
 
+def iterrows(df):
+    if str(type(df)) == "<class 'pyarrow.lib.Table'>":
+        return (row for _, row in df.to_pandas().iterrows())
+    else:
+        return df
+
+
+def row_to_dict(row):
+    try:
+        return row.asDict()
+    except AttributeError:
+        return row.to_dict()
+
+
 def _get_new_pi_df(df_intermediate, spark, params):
     """
     Calculate and collect a dataframe that contains all the new values of pi
@@ -87,7 +102,7 @@ def _get_new_pi_df(df_intermediate, spark, params):
     sql = _sql_gen_pi_df(params)
     levels = spark.sql(sql).collect()
     logger.debug(_format_sql(sql))
-    return [l.asDict() for l in levels]
+    return [row_to_dict(l) for l in iterrows(levels)]
 
 
 def run_maximisation_step(df_e: "DataFrame", model: Model, spark):

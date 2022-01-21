@@ -355,13 +355,27 @@ def _get_df_top_bottom_n(
     return df
 
 
+def iterrows(df):
+    if str(type(df)) == "<class 'pyarrow.lib.Table'>":
+        return (row for _, row in df.to_pandas().iterrows())
+    else:
+        return df
+
+
+def row_to_dict(row):
+    try:
+        return row.asDict()
+    except AttributeError:
+        return row.to_dict()
+
+
 def _collect_and_group_percentiles_df(df_percentiles):
     """Turn df_percentiles into a grouped dictionary
     containing the data need for our charts
     """
 
     percentiles_groups = {}
-    percentiles_rows = [r.asDict() for r in df_percentiles.collect()]
+    percentiles_rows = [row_to_dict(r) for r in iterrows(df_percentiles.collect())]
     for r in percentiles_rows:
 
         if r["group_name"] not in percentiles_groups:
@@ -387,7 +401,7 @@ def _collect_and_group_percentiles_df(df_percentiles):
 
 def _collect_and_group_top_values(df_top):
     top_n_groups = {}
-    top_n_rows = [r.asDict() for r in df_top.collect()]
+    top_n_rows = [row_as_dict(r.asDict) for r in iterrows(df_top.collect())]
     for r in top_n_rows:
         if r["group_name"] not in top_n_groups:
             top_n_groups[r["group_name"]] = []
