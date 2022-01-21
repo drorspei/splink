@@ -1,6 +1,6 @@
 import warnings
 from splink.settings import ComparisonColumn
-from pyspark.sql.session import SparkSession
+
 
 from copy import deepcopy
 

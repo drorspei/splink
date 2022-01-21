@@ -1,5 +1,5 @@
 import pytest
-from pyspark.sql import functions as f
+
 
 from splink_data_generation.generate_data_random import generate_df_gammas_random
 from splink_data_generation.match_prob import add_match_prob
@@ -66,7 +66,7 @@ def test_term_frequency_adjustments(spark):
     forename_probs = _probabilities_from_freqs([3, 2, 1])
     surname_probs = _probabilities_from_freqs([10, 5, 1])
 
-    from pyspark.sql.functions import col, create_map, lit
+    
     from itertools import chain
 
     tf_forename = {"Robin": 1 / 6, "Matt": 2 / 6, "John": 3 / 6}

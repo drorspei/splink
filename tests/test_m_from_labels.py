@@ -1,4 +1,4 @@
-from pyspark.sql import Row
+
 from splink.case_statements import sql_gen_case_smnt_strict_equality_2
 from splink.m_from_labels import estimate_m_from_labels
 

@@ -1,4 +1,4 @@
-from pyspark.sql import Row
+
 from splink.analyse_blocking_rule import analyse_blocking_rule
 from splink.default_settings import complete_settings_dict
 

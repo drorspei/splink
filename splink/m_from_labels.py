@@ -1,5 +1,5 @@
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.functions import lit
+
+
 from splink.vertically_concat import vertically_concatenate_datasets
 from splink.lower_id_on_lhs import lower_id_to_left_hand_side
 from splink.blocking import _get_columns_to_retain_blocking, sql_gen_comparison_columns

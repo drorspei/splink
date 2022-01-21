@@ -1,9 +1,5 @@
 from functools import reduce
-import pyspark.sql.functions as f
-from pyspark.sql import Window
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.session import SparkSession
-import pyspark
+
 from typing import Union
 
 altair_installed = True

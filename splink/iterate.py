@@ -1,6 +1,6 @@
 from typing import Callable
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.session import SparkSession
+
+
 
 from .expectation_step import run_expectation_step
 from .maximisation_step import run_maximisation_step

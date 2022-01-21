@@ -1,6 +1,6 @@
 # https://stackoverflow.com/questions/52556798/spark-iterative-recursive-algorithms-breaking-spark-lineage
 # From https://github.com/high-performance-spark/high-performance-spark-examples/blob/f02142bebf528437702ec8fa689c9c0263e96fe7/high_performance_pyspark/SQLLineage.py#L20
-from pyspark.sql.dataframe import DataFrame
+
 
 
 def cutLineage(df):

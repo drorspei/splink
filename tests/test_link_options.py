@@ -1,5 +1,5 @@
 import pytest
-from pyspark.sql import Row
+
 
 from splink.blocking import block_using_rules
 from splink.default_settings import complete_settings_dict

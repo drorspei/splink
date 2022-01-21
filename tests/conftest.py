@@ -10,9 +10,9 @@ logger = logging.getLogger(__name__)
 def spark():
 
     try:
-        from pyspark import SparkContext, SparkConf
-        from pyspark.sql import SparkSession
-        from pyspark.sql import types
+        
+        
+        
 
         conf = SparkConf()
 

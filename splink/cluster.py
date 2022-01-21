@@ -1,8 +1,8 @@
-from pyspark.sql.dataframe import DataFrame
+
 from typing import Union, List
 from .model import Model
 
-from pyspark.sql.functions import expr
+
 
 from splink.vertically_concat import (
     vertically_concatenate_datasets,
@@ -32,7 +32,7 @@ To use this function, Spark needs access to the `graphframes` jar.
 
 For Spark 2.4.5 suggested code is:
 
-from pyspark.sql import SparkSession
+
 
 spark = (SparkSession
    .builder
@@ -86,7 +86,7 @@ def _check_graphframes_installation(spark):
     if not graphframe_jar_registered:
         raise Exception(graphframes_jar_missing_message)
 
-    from pyspark.sql import Row
+    
 
     errored = False
     try:

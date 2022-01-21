@@ -1,4 +1,4 @@
-from pyspark.sql import Row
+
 
 from splink.case_statements import (
     sql_gen_case_stmt_array_intersect_2,
@@ -182,7 +182,7 @@ def test_jaro_warning(spark):
     spark.sql("drop temporary function jaro_winkler_sim")
     with pytest.warns(UserWarning):
         assert _check_jaro_registered(spark) == False
-    from pyspark.sql.types import DoubleType
+    
 
     spark.udf.registerJavaFunction(
         "jaro_winkler_sim",

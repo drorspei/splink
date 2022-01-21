@@ -1,6 +1,6 @@
 import pytest
 
-from pyspark.sql import Row
+
 
 from splink import Splink
 

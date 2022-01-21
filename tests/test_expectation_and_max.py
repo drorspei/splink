@@ -3,7 +3,7 @@ import pandas as pd
 from pandas.testing import assert_frame_equal
 import pytest
 
-from pyspark.sql import Row
+
 
 from splink.maximisation_step import run_maximisation_step
 from splink.blocking import block_using_rules

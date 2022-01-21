@@ -1,8 +1,8 @@
 from typing import Callable, Union, List
 from typeguard import typechecked
 
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.session import SparkSession
+
+
 from splink.validate import (
     validate_settings_against_schema,
     validate_input_datasets,

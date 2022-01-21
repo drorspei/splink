@@ -3,8 +3,8 @@ from copy import copy, deepcopy
 import warnings
 import pandas as pd
 
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.session import SparkSession
+
+
 from typeguard import typechecked
 
 from .charts import load_chart_definition, altair_if_installed_else_json

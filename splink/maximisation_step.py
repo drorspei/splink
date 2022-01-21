@@ -1,7 +1,7 @@
 import logging
 
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.session import SparkSession
+
+
 
 from .logging_utils import _format_sql
 from .model import Model

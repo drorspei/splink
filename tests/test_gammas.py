@@ -3,8 +3,8 @@ from pandas.testing import assert_frame_equal
 import pytest
 
 from splink.gammas import add_gammas
-from pyspark.sql import Row
-from pyspark.sql.functions import lit
+
+
 
 
 def test_add_gammas(spark):

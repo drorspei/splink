@@ -1,4 +1,4 @@
-from pyspark.sql import Row
+
 from splink import Splink
 from splink import case_statements
 from splink.case_statements import _add_as_gamma_to_case_statement

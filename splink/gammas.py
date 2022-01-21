@@ -2,8 +2,8 @@ from collections import OrderedDict
 import logging
 
 
-from pyspark.sql.dataframe import DataFrame
-from pyspark.sql.session import SparkSession
+
+
 from typeguard import typechecked
 from .logging_utils import _format_sql
 from .settings import ComparisonColumn

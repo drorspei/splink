@@ -2,7 +2,7 @@ from copy import deepcopy
 import os
 import json
 
-from pyspark.sql.session import SparkSession
+
 
 from .settings import Settings
 from .default_settings import complete_settings_dict

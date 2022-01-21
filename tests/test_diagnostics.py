@@ -8,7 +8,7 @@ from splink.diagnostics import (
     _create_probability_density_plot,
 )
 import pytest
-from pyspark.sql import Row
+
 
 
 @pytest.fixture(scope="module")

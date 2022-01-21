@@ -1,6 +1,6 @@
 from splink.vertically_concat import vertically_concatenate_datasets
 
-from pyspark.sql import Row
+
 
 import pytest
 

@@ -1,7 +1,7 @@
 import logging
 
 logger = logging.getLogger(__name__)
-from pyspark.sql import Row
+
 
 from splink.truth import (
     labels_with_splink_scores,
