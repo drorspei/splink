@@ -69,7 +69,7 @@ class Splink:
         self.settings_dict = normalise_probabilities(self.settings_dict)
         validate_probabilities(self.settings_dict)
         # dfs is a list of dfs irrespective of whether input was a df or list of dfs
-        if type(df_or_dfs) == DataFrame:
+        if not isinstance(df_or_dfs, list):
             dfs = [df_or_dfs]
         else:
             dfs = df_or_dfs
