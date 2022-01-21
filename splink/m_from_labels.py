@@ -14,8 +14,8 @@ from splink.default_settings import complete_settings_dict
 
 def estimate_m_from_labels(
     settings: dict,
-    df_or_dfs: DataFrame,
-    labels: DataFrame,
+    df_or_dfs: "DataFrame",
+    labels: "DataFrame",
     use_connected_components,
     fix_m_probabilities=False,
 ):

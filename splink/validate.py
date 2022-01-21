@@ -89,7 +89,7 @@ def validate_input_datasets(df, completed_settings_obj):
     """Check that the input datasets contain the columns needed to run the model
 
     Args:
-        df (DataFrame): Dataframe to be used in splink - either the original df, or the concatenation of the input list of dfs
+        df (DataFrame): "DataFrame" to be used in splink - either the original df, or the concatenation of the input list of dfs
         completed_settings_obj (Settings): Settings object
     """
     cols_present = set(df.columns)

@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 
 def iterate(
-    df_gammas: DataFrame,
+    df_gammas: "DataFrame",
     model: Model,
     spark,
 

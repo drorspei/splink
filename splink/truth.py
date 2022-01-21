@@ -67,7 +67,7 @@ def _get_score_colname(df_e, score_colname=None):
 
 
 def dedupe_splink_scores(
-    df_e_with_dupes: DataFrame,
+    df_e_with_dupes: "DataFrame",
     unique_id_colname: str,
     score_colname: str = None,
     selection_fn: str = "abs_val",
@@ -78,7 +78,7 @@ def dedupe_splink_scores(
     so each pair of nodes appears only once
 
     Args:
-        df_e_with_dupes (DataFrame): Dataframe with dupes
+        df_e_with_dupes (DataFrame): "DataFrame" with dupes
         unique_id_colname (str): Unique id column name e.g. unique_id
         score_colname (str, optional): Which column contains scores? If none, inferred from
             df_e_with_dupes.columns. Defaults to None.
@@ -349,7 +349,7 @@ def df_e_with_truth_categories(
             in the Splink dataset containing the Splink score.  If none will be inferred
 
     Returns:
-        DataFrame: Dataframe of labels associated with truth category
+        DataFrame: "DataFrame" of labels associated with truth category
     """
 
     df_labels_with_splink_scores.createOrReplaceTempView("df_labels_with_splink_scores")
@@ -380,7 +380,7 @@ def df_e_with_truth_categories(
 
 
 def _truth_space_table_old(
-    df_labels_with_splink_scores: DataFrame,
+    df_labels_with_splink_scores: "DataFrame",
     spark,
     threshold_actual: float = 0.5,
     score_colname: str = None,
@@ -426,7 +426,7 @@ def _truth_space_table_old(
 
 
 def truth_space_table(
-    df_labels_with_splink_scores: DataFrame,
+    df_labels_with_splink_scores: "DataFrame",
     spark,
     threshold_actual: float = 0.5,
     score_colname: str = None,

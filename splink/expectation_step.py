@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 
 
 
-def run_expectation_step(df_with_gamma: DataFrame, model: Model, spark):
+def run_expectation_step(df_with_gamma: "DataFrame", model: Model, spark):
     """Run the expectation step of the EM algorithm described in the fastlink paper:
     http://imai.fas.harvard.edu/research/files/linkage.pdf
 

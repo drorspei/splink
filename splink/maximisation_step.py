@@ -90,7 +90,7 @@ def _get_new_pi_df(df_intermediate, spark, params):
     return [l.asDict() for l in levels]
 
 
-def run_maximisation_step(df_e: DataFrame, model: Model, spark):
+def run_maximisation_step(df_e: "DataFrame", model: Model, spark):
     """Compute new parameters and save them in the model object
 
     Note that the model object will be updated in-place by this function

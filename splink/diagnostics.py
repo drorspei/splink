@@ -20,7 +20,7 @@ def _equal_spaced_buckets(num_buckets, extent):
 
 
 def _calc_probability_density(
-    df_e: DataFrame,
+    df_e: "DataFrame",
     spark,
     buckets=None,
     score_colname="match_probability",
@@ -119,7 +119,7 @@ def _create_probability_density_plot(data):
 
 
 def splink_score_histogram(
-    df_e: DataFrame,
+    df_e: "DataFrame",
     spark,
     buckets=None,
     score_colname=None,
@@ -431,7 +431,7 @@ def get_theoretical_comparison_vector_distribution(df_gammas, actual_cvd, settin
 
 
 def estimate_proportion_of_null_comparisons(
-    df_gammas: DataFrame,
+    df_gammas: "DataFrame",
     settings: dict,
 ):
 

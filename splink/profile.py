@@ -403,7 +403,7 @@ def column_value_frequencies_chart(list_of_columns, df, spark, top_n=20, bottom_
 
     Args:
         list_of_col_combinations (list): A list of column names
-        df (DataFrame): Dataframe to profile
+        df (DataFrame): "DataFrame" to profile
         spark (SparkSession): SparkSession object
         top_n (int, optional): Number of values with the highest frequencies to display. Defaults to 20.
         bottom_n (int, optional): Number of values with the lowest frequencies to display. Defaults to 10.
@@ -441,7 +441,7 @@ def column_combination_value_frequencies_chart(
     Args:
         list_of_col_combinations (list): A list of column names, expressions or
           combinations thereof for columns of array type
-        df (DataFrame): Dataframe to profile
+        df (DataFrame): "DataFrame" to profile
         spark (SparkSession): SparkSession object
         top_n (int, optional): Number of values with the highest frequencies to display. Defaults to 20.
         bottom_n (int, optional): Number of values with the lowest frequencies to display. Defaults to 10.
@@ -485,13 +485,13 @@ def column_combination_value_frequencies_chart(
 
 
 def array_column_value_frequencies_chart(
-    list_of_array_cols: list, df: DataFrame, spark, top_n=20, bottom_n=10
+    list_of_array_cols: list, df: "DataFrame", spark, top_n=20, bottom_n=10
 ):
     """Produce value frequency charts for the provided list of columns names
 
     Args:
         list_of_array_cols (list): A list of column names for columns of array type
-        df (DataFrame): Dataframe to profile
+        df (DataFrame): "DataFrame" to profile
         spark (SparkSession): SparkSession object
         top_n (int, optional): Number of values with the highest frequencies to display. Defaults to 20.
         bottom_n (int, optional): Number of values with the lowest frequencies to display. Defaults to 10.
@@ -574,14 +574,14 @@ def blocking_rules_to_column_combinations(blocking_rules: list):
 
 
 def value_frequencies_chart_from_blocking_rules(
-    blocking_rules: list, df: DataFrame, spark, top_n=20, bottom_n=10
+    blocking_rules: list, df: "DataFrame", spark, top_n=20, bottom_n=10
 ):
     """Produce value frequency charts for the provided blocking rules
 
     Args:
         blocking_rules (list): A list of blocking rules as specified in a Splink
             settings dictionary
-        df (DataFrame): Dataframe to profile
+        df (DataFrame): "DataFrame" to profile
         spark (SparkSession): SparkSession object
         top_n (int, optional): Number of values with the highest frequencies to display. Defaults to 20.
         bottom_n (int, optional): Number of values with the lowest frequencies to display. Defaults to 10.

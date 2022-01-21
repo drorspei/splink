@@ -114,7 +114,7 @@ def _retain_tf_columns(settings_dict, df):
 
 def _sql_gen_add_gammas(
     settings: dict,
-    df_comparison: DataFrame,
+    df_comparison: "DataFrame",
     table_name: str = "df_comparison",
 ):
     """Build SQL statement that adds gamma columns to the comparison dataframe
@@ -144,7 +144,7 @@ def _sql_gen_add_gammas(
 
 
 def add_gammas(
-    df_comparison: DataFrame,
+    df_comparison: "DataFrame",
     settings_dict: dict,
     spark,
     unique_id_col: str = "unique_id",
