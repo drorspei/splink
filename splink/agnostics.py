@@ -1,5 +1,5 @@
 def iterrows(df):
-    if str(type(df)) == "<class 'pyarrow.lib.Table'>":
+    if str(type(df)) == "<class 'pandas.core.frame.DataFrame'>":
         return (row for _, row in df.iterrows())
     else:
         return df
