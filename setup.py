@@ -5,6 +5,6 @@ setup(
    version='1',
    description='Splink',
    author='Splink people',
-   packages=find_packages(),
+   packages=find_packages("splink"),
    install_requires=[]
 )
