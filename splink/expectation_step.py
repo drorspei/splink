@@ -198,7 +198,7 @@ def _sql_gen_bayes_factors(comparison_column, tf_adj=False):
     cc = comparison_column
 
     case_statements = []
-    case_statements.append(f"when {cc.gamma_name} = -1 then 1.0D")
+    case_statements.append(f"when {cc.gamma_name} = -1 then cast(1.0 as double)")
 
     if not tf_adj:
         alias = f"bf_{cc.gamma_name}"
