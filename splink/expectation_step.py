@@ -212,7 +212,7 @@ def _sql_gen_bayes_factors(comparison_column, tf_adj=False):
             if m is None or u is None:
                 case_stmt = f"when {cc.gamma_name} = {gamma_index} then null"
             else:
-                case_stmt = f"when {cc.gamma_name} = {gamma_index} then {m/u}D"
+                case_stmt = f"when {cc.gamma_name} = {gamma_index} then cast({m/u} as double)"
 
             case_statements.append(case_stmt)
     else:
@@ -232,7 +232,7 @@ def _sql_gen_bayes_factors(comparison_column, tf_adj=False):
         for gamma_index, weight in enumerate(tf_weights):
             if u_prob_exact is not None:
                 bf_tf = f"{u_prob_exact}D / greatest(tf_{cc.name}_l, tf_{cc.name}_r)"
-                case_stmt = f"when {cc.gamma_name} = {gamma_index} then power({bf_tf}, {weight}D)"
+                case_stmt = f"when {cc.gamma_name} = {gamma_index} then power({bf_tf}, cast({weight} as double))"
             else:
                 case_stmt = f"when {cc.gamma_name} = {gamma_index} then 1"
 
