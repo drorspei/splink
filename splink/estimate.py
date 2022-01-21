@@ -30,7 +30,7 @@ def _num_target_rows_to_rows_to_sample(target_rows):
 def estimate_u_values(
     settings: dict,
     df_or_dfs: DataFrame,
-    spark: SparkSession,
+    spark,
     target_rows: int = 1e6,
     fix_u_probabilities=False,
 ):

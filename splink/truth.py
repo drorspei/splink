@@ -332,7 +332,7 @@ def _summarise_truth_cats(df_truth_cats, spark):
 def df_e_with_truth_categories(
     df_labels_with_splink_scores,
     threshold_pred,
-    spark: SparkSession,
+    spark,
     threshold_actual: float = 0.5,
     score_colname: str = None,
 ):
@@ -385,7 +385,7 @@ def df_e_with_truth_categories(
 
 def _truth_space_table_old(
     df_labels_with_splink_scores: DataFrame,
-    spark: SparkSession,
+    spark,
     threshold_actual: float = 0.5,
     score_colname: str = None,
 ):
@@ -431,7 +431,7 @@ def _truth_space_table_old(
 
 def truth_space_table(
     df_labels_with_splink_scores: DataFrame,
-    spark: SparkSession,
+    spark,
     threshold_actual: float = 0.5,
     score_colname: str = None,
 ):
@@ -573,7 +573,7 @@ def truth_space_table(
 
 def roc_chart(
     df_labels_with_splink_scores: Union[DataFrame, dict],
-    spark: SparkSession,
+    spark,
     threshold_actual: float = 0.5,
     x_domain: list = None,
     width: int = 400,

@@ -12,11 +12,11 @@ import logging
 logger = logging.getLogger(__name__)
 
 
-@typechecked
+
 def iterate(
     df_gammas: DataFrame,
     model: Model,
-    spark: SparkSession,
+    spark,
 
     save_state_fn: Callable = None,
 ):

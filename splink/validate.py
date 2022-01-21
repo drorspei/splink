@@ -37,7 +37,7 @@ def _get_schema(setting_dict_should_be_complete=False):
         return schema2
 
 
-@typechecked
+
 def validate_settings_against_schema(settings_dict: dict):
     """Validate a splink settings object against its jsonschema
 

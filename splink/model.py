@@ -27,7 +27,7 @@ class Model:
 
     """
 
-    def __init__(self, settings: dict, spark: SparkSession):
+    def __init__(self, settings: dict, spark):
         """
 
         Args:

@@ -19,8 +19,8 @@ from .settings import ComparisonColumn
 logger = logging.getLogger(__name__)
 
 
-@typechecked
-def run_expectation_step(df_with_gamma: DataFrame, model: Model, spark: SparkSession):
+
+def run_expectation_step(df_with_gamma: DataFrame, model: Model, spark):
     """Run the expectation step of the EM algorithm described in the fastlink paper:
     http://imai.fas.harvard.edu/research/files/linkage.pdf
 

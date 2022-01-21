@@ -5,7 +5,7 @@ from typing import List
 from typeguard import typechecked
 
 
-@typechecked
+
 def vertically_concatenate_datasets(dfs: List[DataFrame]):
 
     # We require datasets strictly to have the same columns

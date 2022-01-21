@@ -234,7 +234,7 @@ def _complete_custom_columns(col_settings):
     return col_settings
 
 
-def complete_settings_dict(settings_dict: dict, spark: SparkSession):
+def complete_settings_dict(settings_dict: dict, spark):
     """Auto-populate any missing settings from the settings dictionary using the 'sensible defaults' that
     are specified in the json schema (./splink/files/settings_jsonschema.json)
 

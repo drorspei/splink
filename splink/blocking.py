@@ -189,8 +189,8 @@ def _sql_gen_cartesian_block(
     return sql
 
 
-@typechecked
-def block_using_rules(settings: dict, df: DataFrame, spark: SparkSession):
+
+def block_using_rules(settings: dict, df: DataFrame, spark):
     """Apply a series of blocking rules to create a dataframe of record comparisons. If no blocking rules provided, performs a cartesian join.
 
     Args:

@@ -24,13 +24,13 @@ from splink.break_lineage import default_break_lineage_blocked_comparisons
 from splink.default_settings import normalise_probabilities
 
 
-@typechecked
+
 class Splink:
     def __init__(
         self,
         settings: dict,
         df_or_dfs: Union[DataFrame, List[DataFrame]],
-        spark: SparkSession,
+        spark,
         save_state_fn: Callable = None,
         break_lineage_blocked_comparisons: Callable = default_break_lineage_blocked_comparisons,
     ):
@@ -127,11 +127,11 @@ class Splink:
         self.model.save_model_to_json_file(path, overwrite=overwrite)
 
 
-@typechecked
+
 def load_from_json(
     path: str,
     df_or_dfs: Union[DataFrame, List[DataFrame]],
-    spark: SparkSession,
+    spark,
     save_state_fn: Callable = None,
 ):
     """Load a splink model from a json file which has previously been created using 'save_model_as_json'

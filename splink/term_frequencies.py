@@ -67,7 +67,7 @@ def _sql_gen_add_term_frequencies(model: Model, table_name: str = "df"):
     return sql
 
 
-def add_term_frequencies(df: DataFrame, model: Model, spark: SparkSession):
+def add_term_frequencies(df: DataFrame, model: Model, spark):
     """Compute the term frequencies of the required columns and add to the dataframe.
     Args:
         df (spark dataframe): A Spark dataframe containing source records for linking

@@ -18,10 +18,10 @@ def _equal_spaced_buckets(num_buckets, extent):
     return buckets
 
 
-@typechecked
+
 def _calc_probability_density(
     df_e: DataFrame,
-    spark: SparkSession,
+    spark,
     buckets=None,
     score_colname="match_probability",
     symmetric=True,
@@ -120,7 +120,7 @@ def _create_probability_density_plot(data):
 
 def splink_score_histogram(
     df_e: DataFrame,
-    spark: SparkSession,
+    spark,
     buckets=None,
     score_colname=None,
     symmetric=True,

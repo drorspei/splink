@@ -485,7 +485,7 @@ def column_combination_value_frequencies_chart(
 
 
 def array_column_value_frequencies_chart(
-    list_of_array_cols: list, df: DataFrame, spark: SparkSession, top_n=20, bottom_n=10
+    list_of_array_cols: list, df: DataFrame, spark, top_n=20, bottom_n=10
 ):
     """Produce value frequency charts for the provided list of columns names
 
@@ -574,7 +574,7 @@ def blocking_rules_to_column_combinations(blocking_rules: list):
 
 
 def value_frequencies_chart_from_blocking_rules(
-    blocking_rules: list, df: DataFrame, spark: SparkSession, top_n=20, bottom_n=10
+    blocking_rules: list, df: DataFrame, spark, top_n=20, bottom_n=10
 ):
     """Produce value frequency charts for the provided blocking rules
 

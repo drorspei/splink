@@ -142,11 +142,11 @@ def _sql_gen_add_gammas(
     return sql
 
 
-@typechecked
+
 def add_gammas(
     df_comparison: DataFrame,
     settings_dict: dict,
-    spark: SparkSession,
+    spark,
     unique_id_col: str = "unique_id",
 ):
     """Compute the comparison vectors and add them to the dataframe.  See
