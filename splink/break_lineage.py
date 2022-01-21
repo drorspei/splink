@@ -13,17 +13,20 @@ def cutLineage(df):
     >>> cutDf.count()
     3
     """
-    jRDD = df._jdf.toJavaRDD()
-    jSchema = df._jdf.schema()
-    jRDD.cache()
-    sqlCtx = df.sql_ctx
     try:
-        javaSqlCtx = sqlCtx._jsqlContext
-    except:
-        javaSqlCtx = sqlCtx._ssql_ctx
-    newJavaDF = javaSqlCtx.createDataFrame(jRDD, jSchema)
-    newDF = DataFrame(newJavaDF, sqlCtx)
-    return newDF
+        jRDD = df._jdf.toJavaRDD()
+        jSchema = df._jdf.schema()
+        jRDD.cache()
+        sqlCtx = df.sql_ctx
+        try:
+            javaSqlCtx = sqlCtx._jsqlContext
+        except:
+            javaSqlCtx = sqlCtx._ssql_ctx
+        newJavaDF = javaSqlCtx.createDataFrame(jRDD, jSchema)
+        newDF = DataFrame(newJavaDF, sqlCtx)
+        return newDF
+    except AttributeError:
+        return df
 
 
 def default_break_lineage_blocked_comparisons(df_gammas, spark):
