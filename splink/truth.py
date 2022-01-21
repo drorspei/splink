@@ -421,7 +421,7 @@ def _truth_space_table_old(
         df_roc_row = _summarise_truth_cats(df_e_t, spark)
         roc_dfs.append(df_roc_row)
 
-    all_roc_df = reduce(DataFrame.unionAll, roc_dfs)
+    all_roc_df = reduce(roc_dfs[0].unionAll, roc_dfs)
     return all_roc_df
 
 

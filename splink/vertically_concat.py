@@ -33,6 +33,6 @@ def vertically_concatenate_datasets(dfs: List["DataFrame"]):
     col_order = dfs[0].columns
     dfs = [df.select(col_order) for df in dfs]
 
-    df = reduce(DataFrame.unionAll, dfs)
+    df = reduce(dfs[0].unionAll, dfs)
 
     return df

@@ -268,7 +268,7 @@ def _generate_df_all_column_value_frequencies(list_of_col_exprs, df, spark):
 def _generate_df_all_column_value_frequencies_array(list_of_array_cols, df, spark):
 
     to_union = [_array_group(c, df, spark) for c in list_of_array_cols]
-    df = reduce(DataFrame.unionAll, to_union)
+    df = reduce(to_union[0].unionAll, to_union)
     return df
 
 
