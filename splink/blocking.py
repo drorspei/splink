@@ -2,10 +2,6 @@ import logging
 from .ordered_set import OrderedSet
 from .settings import ComparisonColumn
 
-from typeguard import typechecked
-
-
-
 
 from .logging_utils import _format_sql
 

@@ -1,6 +1,5 @@
 from typing import Callable, Union, List
-from typeguard import typechecked
-
+from splink.duckadapter import duckframe, duckspark
 
 
 from splink.validate import (
@@ -126,6 +125,28 @@ class Splink:
         """
         self.model.save_model_to_json_file(path, overwrite=overwrite)
 
+
+class DuckSplink(Splink):
+    def __init__(
+        self,
+        settings: dict,
+        relation_or_relations: Union["DuckDBPyRelation", List["DuckDBPyRelation"]],
+        connection: "DuckDBPyConnection",
+        save_state_fn: Callable = None,
+        break_lineage_blocked_comparisons: Callable = default_break_lineage_blocked_comparisons,
+    ):
+        if isinstance(relation_or_relations, (list, tuple)):
+            df_or_dfs = [duckframe(connection, df) for df in relation_or_relations]
+        else:
+            df_or_dfs = duckframe(connection, relation_or_relations)
+
+        super().__init__(
+            settings=settings,
+            df_or_dfs=df_or_dfs,
+            spark=duckspark(connection),
+            save_state_fn=save_state_fn,
+            break_lineage_blocked_comparisons=break_lineage_blocked_comparisons
+        )
 
 
 def load_from_json(
